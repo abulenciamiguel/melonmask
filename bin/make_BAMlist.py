@@ -38,7 +38,7 @@ for row in data:
     if ont_barcode < 10:
         ont_barcode = "0" + str(ont_barcode)
 
-    row['path'] = string_to_concatenate + '/' + prefix + 'barcode' + str(ont_barcode) + suffix
+    row['path'] = string_to_concatenate + prefix + 'barcode' + str(ont_barcode) + suffix
 
 with open(output_filename, 'w', newline='') as output_file:
     fieldnames = ['ont_barcode', 'central_id', 'type', 'path']  # Include 'type' in the fieldnames

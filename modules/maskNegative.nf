@@ -24,6 +24,10 @@ process maskNegative {
 
 	sed -i 's/MN908947.3/${params.prefix_fasta}${central_id}/g' flag_primerpair_edited.bed
 
-	fa-mask.py --regions flag_primerpair_edited.bed --fasta $fasta --out $params.prefix_fasta${central_id}.maskedMixNegative.fasta
+	if [ -s "./flag_primerpair_edited.bed" ]; then
+		fa-mask.py --regions flag_primerpair_edited.bed --fasta $fasta --out $params.prefix_fasta${central_id}.maskedMixNegative.fasta
+	else
+		cat $fasta > $params.prefix_fasta${central_id}.maskedMixNegative.fasta
+	fi
 	"""
 }

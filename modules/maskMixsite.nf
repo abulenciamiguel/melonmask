@@ -9,10 +9,11 @@ process maskmix {
 	overwrite: "true"
 	)
 
-	errorStrategy 'ignore'
+	//errorStrategy 'ignore'
 
 	input:
 	tuple val(central_id), path(fasta), path(bed)
+	
 
 
 	output:
@@ -25,7 +26,7 @@ process maskmix {
 
 	sed -i 's/MN908947.3/${params.prefix_fasta}${central_id}/g' flag_primerpair_edited.bed
 
-	if [ -s "./flag_primerpair_edited.bed" ]; then
+	if [ -s "flag_primerpair_edited.bed" ]; then
 		fa-mask.py --regions flag_primerpair_edited.bed --fasta $fasta --out $params.prefix_fasta${central_id}.maskedMix.fasta
 	else
 		cat $fasta > $params.prefix_fasta${central_id}.maskedMix.fasta

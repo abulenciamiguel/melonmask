@@ -33,7 +33,8 @@ with open(input_filename, 'r') as input_file:
     data = [{field: row[field] for field in fieldnames} for row in reader if row['type'] == samp_type]
 
 for row in data:
-    row['path'] = string_to_concatenate + '/' + prefix + row['central_id'] + suffix
+    #row['path'] = string_to_concatenate + '/' + prefix + row['central_id'] + suffix
+    row['path'] = string_to_concatenate + prefix + row['central_id'] + suffix
 
 with open(output_filename, 'w', newline='') as output_file:
     fieldnames = ['central_id', 'type', 'path']  # Include 'type' in the fieldnames
