@@ -22,8 +22,6 @@ process maskmix {
 
 	script:
 	"""
-	#cp $bed flag_primerpair_edited.bed
-
 	sed -i 's/MN908947.3/${params.prefix_fasta}${central_id}/g' $bed
 
 	if [ -s "$bed" ]; then
