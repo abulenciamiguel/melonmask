@@ -64,7 +64,7 @@ workflow melonmask {
 
         primerFlaggingNEGATIVE(ch_combinedBAM)
 
-		maskmix(ch_fasta, primerFlagging.out.flaggedPrimer)
+		maskmix(ch_fasta.join(primerFlagging.out.flaggedPrimer))
 
 		maskNegative(maskmix.out.maskedMix, primerFlaggingNEGATIVE.out.flaggedPrimerNEGATIVE)
 
