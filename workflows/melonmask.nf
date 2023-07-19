@@ -68,47 +68,6 @@ workflow melonmask {
 
 		maskNegative(maskmix.out.maskedMix, primerFlaggingNEGATIVE.out.flaggedPrimerNEGATIVE)
 
-		//centralID_out = barcodeTocentralID.out.barcodeCentralID
-		//prefixBAM_txt = barcodeTocentralID.out.prefixBAM
-		//prefixFASTA_txt = barcodeTocentralID.out.prefixFASTA
-
-
-        //FLAGS(ch_bammix, ch_ref)
-
-		//FLAGS.out.centralID_out.splitCsv(header:true, sep:'\t')
-		//			                 .map{row-> tuple(row.central_id, row.positions)}
-		//			                 .set{ch_position}
-
-		//POSITIONS(ch_position)
-
-		//PRIMERS(POSITIONS.out.positions_out)
-
-		//LISTFASTA(ch_ref, FLAGS.out.prefixFASTA_txt)
-	
-		//LISTFASTA.out.listFasta_out.splitCsv(header:true, sep:',')
-		//			                 .map{row-> tuple(row.central_id, file(row.path))}
-		//			                 .set{ch_fasta}
-
-
-		//LISTNEGATIVEBAM(ch_ref, FLAGS.out.prefixBAM_txt)
-
-		//LISTNEGATIVEBAM.out.listBam_out.splitCsv(header:true, sep:',')
-		//			                 .map{row-> tuple(row.central_id, file(row.path), file(row.ont_barcode), file(row.type))}
-		//			                 .set{ch_negativebam}
-
-		//BAMREGIONS(ch_negativebam)
-
-		//BAMREGIONS.out.bamRegions
-		//						.collectFile(name: "combined.BAM.region.csv", newLine: true,
-		//						storeDir: params.out_dir)
-		//						.set{ch_combinedBAM}
-
-		//PRIMERSNEGATIVE(ch_combinedBAM)
-
-		//MASKMIX(ch_fasta, PRIMERS.out.flaggedBed)
-
-		//MASKNEGATIVE(MASKMIX.out.maskmix_out, PRIMERSNEGATIVE.out.flaggedPrimerNEGATIVE_out)
-
 
 }
 
