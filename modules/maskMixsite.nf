@@ -9,7 +9,7 @@ process maskmix {
 	overwrite: "true"
 	)
 
-	//errorStrategy 'ignore'
+	errorStrategy 'ignore'
 
 	input:
 	tuple val(central_id), path(fasta), path(bed)
