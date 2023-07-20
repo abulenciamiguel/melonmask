@@ -22,6 +22,8 @@ process flaggedNegativeControlRegion {
 	script:
 	"""
 	if [ -e "$path" ]; then
+		touch negative.${central_id}.csv
+		
 		extract_negcontrol.py \
 		--bam $path \
 		--out negative.${central_id}.csv
